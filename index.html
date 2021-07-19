@@ -3,7 +3,7 @@
   <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
   <title>Web IDL</title>
   <link href="https://www.w3.org/StyleSheets/TR/2016/W3C-ED" rel="stylesheet" type="text/css">
-  <meta content="Bikeshed version 3d6a6fcbb, updated Wed Jun 16 16:19:39 2021 -0700" name="generator">
+  <meta content="Bikeshed version bb6b91100, updated Mon Jul 12 16:52:37 2021 -0700" name="generator">
   <link href="https://heycam.github.io/webidl/" rel="canonical">
 <style>
         pre.set {
@@ -723,7 +723,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
   <div class="head">
    <p data-fill-with="logo"><a class="logo" href="https://www.w3.org/"> <img alt="W3C" height="48" src="https://www.w3.org/StyleSheets/TR/2016/logos/W3C" width="72"> </a> </p>
    <h1 class="p-name no-ref" id="title">Web IDL</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="profile-and-date"><span class="content">Editor’s Draft, <time class="dt-updated" datetime="2021-07-05">5 July 2021</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="profile-and-date"><span class="content">Editor’s Draft, <time class="dt-updated" datetime="2021-07-19">19 July 2021</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
@@ -5856,12 +5856,12 @@ ECMAScript array types, imposing additional semantics on their usage.</p>
 of algorithms:</p>
    <ul>
     <li data-md="">
-     <p><dfn class="dfn-paneled" data-dfn-for="observable array attribute" data-dfn-type="dfn" data-noexport="" id="observable-array-attribute-set-an-indexed-value">set an indexed value</dfn>, which accepts an IDL value
-that is about to be set in the observable array, and the index at which it is being set;</p>
+     <p><dfn class="dfn-paneled" data-dfn-for="observable array attribute" data-dfn-type="dfn" data-export="" id="observable-array-attribute-set-an-indexed-value">set an indexed value</dfn>, which accepts an IDL
+value that is about to be set in the observable array, and the index at which it is being set;</p>
     </li><li data-md="">
-     <p><dfn class="dfn-paneled" data-dfn-for="observable array attribute" data-dfn-type="dfn" data-noexport="" id="observable-array-attribute-delete-an-indexed-value">delete an indexed value</dfn>, which accepts an IDL value
-that is about to be removed from the observable array, and the index from which it is being
-removed.</p>
+     <p><dfn class="dfn-paneled" data-dfn-for="observable array attribute" data-dfn-type="dfn" data-export="" id="observable-array-attribute-delete-an-indexed-value">delete an indexed value</dfn>, which accepts an
+IDL value that is about to be removed from the observable array, and the index from which it is
+being removed.</p>
    </li></ul>
    <p>Both of these algorithms are optional, and if not provided, the default behavior will be to do
 nothing. Either algorithm may throw an exception, e.g. to reject invalid values.</p>
@@ -17275,9 +17275,9 @@ language binding.</p>
    </dd><dt id="biblio-perlre">[PERLRE]
    </dt><dd><a href="http://search.cpan.org/dist/perl/pod/perlre.pod">Perl regular expressions (Perl 5.8.8)</a>. February 2006. URL: <a href="http://search.cpan.org/dist/perl/pod/perlre.pod">http://search.cpan.org/dist/perl/pod/perlre.pod</a>
    </dd><dt id="biblio-rfc2781">[RFC2781]
-   </dt><dd>P. Hoffman; F. Yergeau. <a href="https://datatracker.ietf.org/doc/html/rfc2781">UTF-16, an encoding of ISO 10646</a>. February 2000. Informational. URL: <a href="https://datatracker.ietf.org/doc/html/rfc2781">https://datatracker.ietf.org/doc/html/rfc2781</a>
+   </dt><dd>P. Hoffman; F. Yergeau. <a href="https://www.rfc-editor.org/rfc/rfc2781">UTF-16, an encoding of ISO 10646</a>. February 2000. Informational. URL: <a href="https://www.rfc-editor.org/rfc/rfc2781">https://www.rfc-editor.org/rfc/rfc2781</a>
    </dd><dt id="biblio-rfc3629">[RFC3629]
-   </dt><dd>F. Yergeau. <a href="https://datatracker.ietf.org/doc/html/rfc3629">UTF-8, a transformation format of ISO 10646</a>. November 2003. Internet Standard. URL: <a href="https://datatracker.ietf.org/doc/html/rfc3629">https://datatracker.ietf.org/doc/html/rfc3629</a>
+   </dt><dd>F. Yergeau. <a href="https://www.rfc-editor.org/rfc/rfc3629">UTF-8, a transformation format of ISO 10646</a>. November 2003. Internet Standard. URL: <a href="https://www.rfc-editor.org/rfc/rfc3629">https://www.rfc-editor.org/rfc/rfc3629</a>
    </dd><dt id="biblio-unicode">[UNICODE]
    </dt><dd><a href="https://www.unicode.org/versions/latest/">The Unicode Standard</a>. URL: <a href="https://www.unicode.org/versions/latest/">https://www.unicode.org/versions/latest/</a>
    </dd><dt id="biblio-webidl">[WebIDL]
