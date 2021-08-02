@@ -723,7 +723,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
   <div class="head">
    <p data-fill-with="logo"><a class="logo" href="https://www.w3.org/"> <img alt="W3C" height="48" src="https://www.w3.org/StyleSheets/TR/2016/logos/W3C" width="72"> </a> </p>
    <h1 class="p-name no-ref" id="title">Web IDL</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="profile-and-date"><span class="content">Editor’s Draft, <time class="dt-updated" datetime="2021-07-29">29 July 2021</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="profile-and-date"><span class="content">Editor’s Draft, <time class="dt-updated" datetime="2021-08-02">2 August 2021</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
@@ -5476,7 +5476,9 @@ The <a data-link-type="dfn" href="#dfn-inner-type" id="ref-for-dfn-inner-type⑦
     <li data-md="">
      <p><code class="idl"><a data-link-type="idl" href="#idl-any" id="ref-for-idl-any⑥">any</a></code>,</p>
     </li><li data-md="">
-     <p>a <a data-link-type="dfn" href="#dfn-promise-type" id="ref-for-dfn-promise-type④">Promise type</a>,</p>
+     <p>a <a data-link-type="dfn" href="#dfn-promise-type" id="ref-for-dfn-promise-type④">promise type</a>,</p>
+    </li><li data-md="">
+     <p>an <a data-link-type="dfn" href="#dfn-observable-array-type" id="ref-for-dfn-observable-array-type">observable array type</a>,</p>
     </li><li data-md="">
      <p>another nullable type, or</p>
     </li><li data-md="">
@@ -5848,7 +5850,8 @@ type is the concatenation of the type name for <var>T</var> and the string
    <p>An <dfn class="dfn-paneled" data-dfn-type="dfn" data-export="" id="dfn-observable-array-type">observable array type</dfn> is a parameterized type
 whose values are references to a combination of a mutable list of objects of type <var>T</var>, as well as
 behavior to perform when author code modifies the contents of the list.</p>
-   <p>The parameterized type must not be a <a data-link-type="dfn" href="#idl-dictionary" id="ref-for-idl-dictionary①②">dictionary type</a>, <a data-link-type="dfn" href="#sequence-type" id="ref-for-sequence-type①②">sequence type</a>, or <a data-link-type="dfn" href="#record-type" id="ref-for-record-type②">record type</a>.</p>
+   <p>The parameterized type <var>T</var> must not be a <a data-link-type="dfn" href="#idl-dictionary" id="ref-for-idl-dictionary①②">dictionary type</a>, <a data-link-type="dfn" href="#sequence-type" id="ref-for-sequence-type①②">sequence type</a>, <a data-link-type="dfn" href="#record-type" id="ref-for-record-type②">record type</a>,
+or <a data-link-type="dfn" href="#dfn-observable-array-type" id="ref-for-dfn-observable-array-type①">observable array type</a>. However, <var>T</var> may be nullable.</p>
    <p>Similar to <a data-link-type="dfn" href="#sequence-type" id="ref-for-sequence-type①③">sequence types</a> and <a data-link-type="dfn" href="#dfn-frozen-array-type" id="ref-for-dfn-frozen-array-type④">frozen array types</a>, observable array types wrap around
 ECMAScript array types, imposing additional semantics on their usage.</p>
    <p>Observable array types must only be used as the type of <a data-link-type="dfn" href="#dfn-regular-attribute" id="ref-for-dfn-regular-attribute⑧">regular attributes</a> defined on an <a data-link-type="dfn" href="#dfn-interface" id="ref-for-dfn-interface⑨⑥">interface</a>.</p>
@@ -5867,7 +5870,7 @@ being removed.</p>
 nothing. Either algorithm may throw an exception, e.g. to reject invalid values.</p>
    <p>Note that when ECMAScript code sets an existing index to a new value, this will first call the <a data-link-type="dfn" href="#observable-array-attribute-delete-an-indexed-value" id="ref-for-observable-array-attribute-delete-an-indexed-value">delete an indexed value</a> algorithm to remove the existing value, and
 then the <a data-link-type="dfn" href="#observable-array-attribute-set-an-indexed-value" id="ref-for-observable-array-attribute-set-an-indexed-value">set an indexed value</a> algorithm with the new value.</p>
-   <p>Every <a data-link-type="dfn" href="#dfn-regular-attribute" id="ref-for-dfn-regular-attribute⑨">regular attribute</a> whose type is an <a data-link-type="dfn" href="#dfn-observable-array-type" id="ref-for-dfn-observable-array-type">observable array type</a> has a <dfn class="dfn-paneled" data-dfn-for="observable array attribute" data-dfn-type="dfn" data-noexport="" id="observable-array-attribute-backing-list">backing list</dfn>, which is a <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#list" id="ref-for-list⑨">list</a>, initially empty.
+   <p>Every <a data-link-type="dfn" href="#dfn-regular-attribute" id="ref-for-dfn-regular-attribute⑨">regular attribute</a> whose type is an <a data-link-type="dfn" href="#dfn-observable-array-type" id="ref-for-dfn-observable-array-type②">observable array type</a> has a <dfn class="dfn-paneled" data-dfn-for="observable array attribute" data-dfn-type="dfn" data-noexport="" id="observable-array-attribute-backing-list">backing list</dfn>, which is a <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#list" id="ref-for-list⑨">list</a>, initially empty.
 Specification authors can modify the contents of the backing list, which will automatically be
 reflected in the contents of the observable array as observed by ECMAScript code. Similarly, any
 modifications by ECMAScript code to the contents of the observable array will be reflected back into
@@ -8061,7 +8064,7 @@ to the same object that the IDL <a class="idl-code" data-link-type="interface" h
    <p>Values of observable array types are represented by <a data-link-type="dfn" href="#observable-array-exotic-object" id="ref-for-observable-array-exotic-object">observable array exotic objects</a>.</p>
    <p>Instead of the usual conversion algorithms, observable array types have special handling as part of
 the <a data-link-type="dfn" href="#dfn-attribute-getter" id="ref-for-dfn-attribute-getter①">attribute getter</a> and <a data-link-type="dfn" href="#dfn-attribute-setter" id="ref-for-dfn-attribute-setter①">attribute setter</a> algorithms.</p>
-   <p>In the ECMAScript binding, ECMAScript objects that represent <a data-link-type="dfn" href="#dfn-platform-object" id="ref-for-dfn-platform-object①②">platform objects</a> have a <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport="" id="backing-observable-array-exotic-object">backing observable array exotic object</dfn> for each <a data-link-type="dfn" href="#dfn-regular-attribute" id="ref-for-dfn-regular-attribute①⓪">regular attribute</a> of an <a data-link-type="dfn" href="#dfn-observable-array-type" id="ref-for-dfn-observable-array-type①">observable array type</a>. These are created and managed as part of the <a data-link-type="dfn" href="#define-the-attributes" id="ref-for-define-the-attributes">define the attributes</a> algorithm.</p>
+   <p>In the ECMAScript binding, ECMAScript objects that represent <a data-link-type="dfn" href="#dfn-platform-object" id="ref-for-dfn-platform-object①②">platform objects</a> have a <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport="" id="backing-observable-array-exotic-object">backing observable array exotic object</dfn> for each <a data-link-type="dfn" href="#dfn-regular-attribute" id="ref-for-dfn-regular-attribute①⓪">regular attribute</a> of an <a data-link-type="dfn" href="#dfn-observable-array-type" id="ref-for-dfn-observable-array-type③">observable array type</a>. These are created and managed as part of the <a data-link-type="dfn" href="#define-the-attributes" id="ref-for-define-the-attributes">define the attributes</a> algorithm.</p>
    <div class="algorithm" data-algorithm="observable array backing list">
      The <a data-link-type="dfn" href="#observable-array-attribute-backing-list" id="ref-for-observable-array-attribute-backing-list">backing list</a> for an observable array attribute in the
     ECMAScript binding, given a <a data-link-type="dfn" href="#dfn-platform-object" id="ref-for-dfn-platform-object①③">platform object</a> <var>obj</var> and an attribute <var>attribute</var>, is the <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#list" id="ref-for-list①④">list</a> returned by the following algorithm: 
@@ -10369,7 +10372,7 @@ in which case they are exposed on every object that <a data-link-type="dfn" href
        </li><li data-md="">
         <p>Perform <a data-link-type="dfn" href="https://tc39.github.io/ecma262/#sec-returnifabrupt-shorthands" id="ref-for-sec-returnifabrupt-shorthands⑦⑦">!</a> <a data-link-type="abstract-op" href="https://tc39.github.io/ecma262/#sec-definepropertyorthrow" id="ref-for-sec-definepropertyorthrow⑤">DefinePropertyOrThrow</a>(<var>target</var>, <var>id</var>, <var>desc</var>).</p>
        </li><li data-md="">
-        <p>If <var>attr</var>’s type is an <a data-link-type="dfn" href="#dfn-observable-array-type" id="ref-for-dfn-observable-array-type②">observable array type</a> with type argument <var>T</var>, then set <var>target</var>’s <a data-link-type="dfn" href="#backing-observable-array-exotic-object" id="ref-for-backing-observable-array-exotic-object①">backing observable array exotic object</a> for <var>attr</var> to the result of <a data-link-type="dfn" href="#creating-an-observable-array-exotic-object" id="ref-for-creating-an-observable-array-exotic-object">creating an observable array exotic object</a> in <var>realm</var>, given <var>T</var>, <var>attr</var>’s <a data-link-type="dfn" href="#observable-array-attribute-set-an-indexed-value" id="ref-for-observable-array-attribute-set-an-indexed-value④">set an indexed value</a> algorithm, and <var>attr</var>’s <a data-link-type="dfn" href="#observable-array-attribute-delete-an-indexed-value" id="ref-for-observable-array-attribute-delete-an-indexed-value④">delete an indexed value</a> algorithm.</p>
+        <p>If <var>attr</var>’s type is an <a data-link-type="dfn" href="#dfn-observable-array-type" id="ref-for-dfn-observable-array-type④">observable array type</a> with type argument <var>T</var>, then set <var>target</var>’s <a data-link-type="dfn" href="#backing-observable-array-exotic-object" id="ref-for-backing-observable-array-exotic-object①">backing observable array exotic object</a> for <var>attr</var> to the result of <a data-link-type="dfn" href="#creating-an-observable-array-exotic-object" id="ref-for-creating-an-observable-array-exotic-object">creating an observable array exotic object</a> in <var>realm</var>, given <var>T</var>, <var>attr</var>’s <a data-link-type="dfn" href="#observable-array-attribute-set-an-indexed-value" id="ref-for-observable-array-attribute-set-an-indexed-value④">set an indexed value</a> algorithm, and <var>attr</var>’s <a data-link-type="dfn" href="#observable-array-attribute-delete-an-indexed-value" id="ref-for-observable-array-attribute-delete-an-indexed-value④">delete an indexed value</a> algorithm.</p>
       </li></ol>
     </li></ol>
    </div>
@@ -10404,7 +10407,7 @@ passing <var>esValue</var>, <var>attribute</var>’s <a data-link-type="dfn" hre
               <p>Otherwise, <a data-link-type="dfn" href="#ecmascript-throw" id="ref-for-ecmascript-throw②⑧">throw</a> a <code class="idl"><a data-link-type="idl" href="https://tc39.github.io/ecma262/#sec-native-error-types-used-in-this-standard-typeerror" id="ref-for-sec-native-error-types-used-in-this-standard-typeerror③④">TypeError</a></code>.</p>
             </li></ol>
            </li><li data-md="">
-            <p>If <var>attribute</var>’s type is an <a data-link-type="dfn" href="#dfn-observable-array-type" id="ref-for-dfn-observable-array-type③">observable array type</a>, then return <var>esValue</var>’s <a data-link-type="dfn" href="#backing-observable-array-exotic-object" id="ref-for-backing-observable-array-exotic-object②">backing observable array exotic object</a> for <var>attribute</var>.</p>
+            <p>If <var>attribute</var>’s type is an <a data-link-type="dfn" href="#dfn-observable-array-type" id="ref-for-dfn-observable-array-type⑤">observable array type</a>, then return <var>esValue</var>’s <a data-link-type="dfn" href="#backing-observable-array-exotic-object" id="ref-for-backing-observable-array-exotic-object②">backing observable array exotic object</a> for <var>attribute</var>.</p>
            </li><li data-md="">
             <p>Set <var>idlObject</var> to the IDL <a data-link-type="dfn" href="#idl-interface" id="ref-for-idl-interface①⑥">interface type</a> value that represents a reference
 to <var>esValue</var>.</p>
@@ -10508,7 +10511,7 @@ attribute.</p>
           <p>Set <var>idlObject</var> to the IDL <a data-link-type="dfn" href="#idl-interface" id="ref-for-idl-interface①⑦">interface type</a> value that represents a reference
 to <var>esValue</var>.</p>
          </li><li data-md="">
-          <p>If <var>attribute</var>’s type is an <a data-link-type="dfn" href="#dfn-observable-array-type" id="ref-for-dfn-observable-array-type④">observable array type</a> with type argument <var>T</var>:</p>
+          <p>If <var>attribute</var>’s type is an <a data-link-type="dfn" href="#dfn-observable-array-type" id="ref-for-dfn-observable-array-type⑥">observable array type</a> with type argument <var>T</var>:</p>
           <ol>
            <li data-md="">
             <p>Let <var>newValues</var> be the result of <a data-link-type="dfn" href="#dfn-convert-ecmascript-to-idl-value" id="ref-for-dfn-convert-ecmascript-to-idl-value⑥⑥">converting</a> <var>V</var> to
@@ -12833,7 +12836,7 @@ otherwise set it to <emu-val>true</emu-val>.</p>
    <h3 class="heading settled" data-level="3.10" id="es-observable-arrays"><span class="secno">3.10. </span><span class="content">Observable array exotic objects</span><a class="self-link" href="#es-observable-arrays"></a></h3>
    <p>An <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport="" id="observable-array-exotic-object">observable array exotic object</dfn> is a specific type of ECMAScript <a data-link-type="dfn" href="https://tc39.github.io/ecma262/#sec-proxy-object-internal-methods-and-internal-slots" id="ref-for-sec-proxy-object-internal-methods-and-internal-slots">Proxy exotic object</a> which is created using the proxy traps defined in this section. They are
 defined in this manner because the ECMAScript specification includes special treatment for <a data-link-type="dfn" href="https://tc39.github.io/ecma262/#sec-proxy-object-internal-methods-and-internal-slots" id="ref-for-sec-proxy-object-internal-methods-and-internal-slots①">Proxy exotic objects</a> that have <code>Array</code> instances as their proxy target, and we want
-to ensure that <a data-link-type="dfn" href="#dfn-observable-array-type" id="ref-for-dfn-observable-array-type⑤">observable array types</a> are exposed to ECMAScript code with this special treatment
+to ensure that <a data-link-type="dfn" href="#dfn-observable-array-type" id="ref-for-dfn-observable-array-type⑦">observable array types</a> are exposed to ECMAScript code with this special treatment
 intact.</p>
    <p>The proxy traps used by observable array exotic objects work to ensure a number of invariants beyond
 those of normal <code>Array</code> instances:</p>
@@ -19811,10 +19814,11 @@ language binding.</p>
   <aside class="dfn-panel" data-for="dfn-observable-array-type">
    <b><a href="#dfn-observable-array-type">#dfn-observable-array-type</a></b><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-dfn-observable-array-type">2.13.35. Observable array types — ObservableArray&lt;T&gt;</a>
-    </li><li><a href="#ref-for-dfn-observable-array-type①">3.2.27. Observable arrays — ObservableArray&lt;T&gt;</a>
-    </li><li><a href="#ref-for-dfn-observable-array-type②">3.7.6. Attributes</a> <a href="#ref-for-dfn-observable-array-type③">(2)</a> <a href="#ref-for-dfn-observable-array-type④">(3)</a>
-    </li><li><a href="#ref-for-dfn-observable-array-type⑤">3.10. Observable array exotic objects</a>
+    <li><a href="#ref-for-dfn-observable-array-type">2.13.27. Nullable types — T?</a>
+    </li><li><a href="#ref-for-dfn-observable-array-type①">2.13.35. Observable array types — ObservableArray&lt;T&gt;</a> <a href="#ref-for-dfn-observable-array-type②">(2)</a>
+    </li><li><a href="#ref-for-dfn-observable-array-type③">3.2.27. Observable arrays — ObservableArray&lt;T&gt;</a>
+    </li><li><a href="#ref-for-dfn-observable-array-type④">3.7.6. Attributes</a> <a href="#ref-for-dfn-observable-array-type⑤">(2)</a> <a href="#ref-for-dfn-observable-array-type⑥">(3)</a>
+    </li><li><a href="#ref-for-dfn-observable-array-type⑦">3.10. Observable array exotic objects</a>
    </li></ul>
   </aside>
   <aside class="dfn-panel" data-for="observable-array-attribute-set-an-indexed-value">
